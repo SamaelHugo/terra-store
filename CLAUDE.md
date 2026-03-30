@@ -56,4 +56,4 @@ Demo project for web developer portfolio. Must look like a real premium wellness
 - [x] Prompt 3: Product detail page
 - [x] Prompt 4: About + Contact pages
 - [x] Prompt 5: Strapi API integration (replace mock data)
-- [ ] Prompt 6: Animations + Polish + Deploy
+- [x] Prompt 6: Animations + Polish + Deploy

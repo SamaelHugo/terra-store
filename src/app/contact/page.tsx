@@ -10,15 +10,7 @@ const inputStyle: React.CSSProperties = {
   border: '1px solid rgba(255,255,255,0.08)',
 };
 
-const inputFocusHandler = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(255,255,255,0.04)';
-};
-
-const inputBlurHandler = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-  e.currentTarget.style.boxShadow = 'none';
-};
+/* Focus/blur now handled by .glass-input CSS class in globals.css */
 
 /* ── contact info data ── */
 
@@ -139,10 +131,8 @@ export default function ContactPage() {
                       type="text"
                       placeholder="Имя"
                       required
-                      className="w-full rounded-lg p-4 text-[15px] text-text-heading outline-none transition-all duration-300 placeholder:text-text-muted/50"
+                      className="glass-input w-full rounded-lg p-4 text-[15px] text-text-heading outline-none transition-all duration-300 placeholder:text-text-muted/50"
                       style={inputStyle}
-                      onFocus={inputFocusHandler}
-                      onBlur={inputBlurHandler}
                     />
                   </div>
                   <div>
@@ -150,10 +140,8 @@ export default function ContactPage() {
                       type="email"
                       placeholder="Email"
                       required
-                      className="w-full rounded-lg p-4 text-[15px] text-text-heading outline-none transition-all duration-300 placeholder:text-text-muted/50"
+                      className="glass-input w-full rounded-lg p-4 text-[15px] text-text-heading outline-none transition-all duration-300 placeholder:text-text-muted/50"
                       style={inputStyle}
-                      onFocus={inputFocusHandler}
-                      onBlur={inputBlurHandler}
                     />
                   </div>
                   <div>
@@ -161,10 +149,8 @@ export default function ContactPage() {
                       placeholder="Сообщение"
                       rows={4}
                       required
-                      className="w-full resize-none rounded-lg p-4 text-[15px] text-text-heading outline-none transition-all duration-300 placeholder:text-text-muted/50"
+                      className="glass-input w-full resize-none rounded-lg p-4 text-[15px] text-text-heading outline-none transition-all duration-300 placeholder:text-text-muted/50"
                       style={inputStyle}
-                      onFocus={inputFocusHandler}
-                      onBlur={inputBlurHandler}
                     />
                   </div>
                   <button

@@ -40,7 +40,7 @@ export default function ProductCard({
         className="glass-card group flex h-full cursor-pointer flex-col overflow-hidden"
       >
         {/* Image — 3:4 */}
-        <div className="relative aspect-[3/4] overflow-hidden rounded-t-[15px]">
+        <div className="img-shimmer relative aspect-[3/4] overflow-hidden rounded-t-[15px]">
           <Image
             src={product.images[0]}
             alt={product.name}

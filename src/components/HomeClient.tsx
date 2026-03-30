@@ -113,7 +113,7 @@ export default function HomeClient({ featured }: { featured: Product[] }) {
               >
                 <Link href={`/catalog/${product.slug}`} className="glass-card group block overflow-hidden">
                   {/* Image — 3:4 */}
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                  <div className="img-shimmer relative aspect-[3/4] overflow-hidden">
                     <Image
                       src={product.images[0]}
                       alt={product.name}
