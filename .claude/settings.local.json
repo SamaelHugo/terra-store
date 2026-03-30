@@ -10,7 +10,8 @@
       "Bash(curl:*)",
       "Bash(npm run:*)",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); attrs=d.get\\(''''data'''',{}\\).get\\(''''schema'''',{}\\).get\\(''''attributes'''',{}\\); [print\\(f''''{k}: {v.get\\(type,?\\)}''''\\) for k,v in attrs.items\\(\\)]\")",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(json.dumps\\(p, ensure_ascii=False, indent=2\\)\\) for p in d[''''data''''][:2]]\")"
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(json.dumps\\(p, ensure_ascii=False, indent=2\\)\\) for p in d[''''data''''][:2]]\")",
+      "Bash(npx vercel:*)"
     ]
   }
 }
