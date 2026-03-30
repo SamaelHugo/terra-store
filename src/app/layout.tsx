@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CartToast from '@/components/CartToast';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CartToast />
       </body>
     </html>
   );

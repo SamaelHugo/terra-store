@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '@/store/cart';
+import CartSidebar from '@/components/CartSidebar';
 
 const navLinks = [
   { href: '/catalog', label: 'Каталог' },
@@ -13,6 +15,9 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const count = useCart((s) => s.getCount());
+  const [badgePulse, setBadgePulse] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,11 +28,22 @@ export default function Navbar() {
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
-    } else {
+    } else if (!cartOpen) {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
-  }, [mobileOpen]);
+  }, [mobileOpen, cartOpen]);
+
+  // Pulse badge when count changes (but not on initial render)
+  const [prevCount, setPrevCount] = useState(count);
+  useEffect(() => {
+    if (count > prevCount) {
+      setBadgePulse(true);
+      const t = setTimeout(() => setBadgePulse(false), 400);
+      return () => clearTimeout(t);
+    }
+    setPrevCount(count);
+  }, [count, prevCount]);
 
   return (
     <>
@@ -63,7 +79,8 @@ export default function Navbar() {
           {/* Right — cart + hamburger */}
           <div className="flex items-center gap-5">
             <button
-              className="group relative text-text-heading/40 transition-all duration-500 hover:text-text-heading/80"
+              onClick={() => setCartOpen(true)}
+              className="group relative cursor-pointer text-text-heading/40 transition-all duration-500 hover:text-text-heading/80"
               aria-label="Корзина"
             >
               <svg
@@ -80,6 +97,25 @@ export default function Navbar() {
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 01-8 0" />
               </svg>
+
+              {/* Badge */}
+              <AnimatePresence>
+                {count > 0 && (
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: badgePulse ? [1, 1.3, 1] : 1 }}
+                    exit={{ scale: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute -right-2 -top-2 flex h-[18px] min-w-[18px] items-center justify-center rounded-full px-1 text-[10px] font-medium text-white"
+                    style={{
+                      background: 'var(--accent-green)',
+                      boxShadow: '0 2px 8px rgba(74,124,89,0.4)',
+                    }}
+                  >
+                    {count}
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
 
             {/* Hamburger — mobile */}
@@ -149,6 +185,9 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Cart sidebar */}
+      <CartSidebar open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

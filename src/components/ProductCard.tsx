@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
+import { useCart } from '@/store/cart';
+import { useToast } from '@/components/CartToast';
 
 function formatPrice(price: number) {
   return price.toLocaleString('ru-RU') + '₽';
@@ -16,6 +18,15 @@ export default function ProductCard({
   product: Product;
   index?: number;
 }) {
+  const addItem = useCart((s) => s.addItem);
+  const showToast = useToast((s) => s.show);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    addItem(product);
+    showToast();
+  };
+
   return (
     <motion.div
       layout
@@ -90,9 +101,7 @@ export default function ProductCard({
                   e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
                   e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
                 }}
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
+                onClick={handleAddToCart}
               >
                 В корзину
               </button>

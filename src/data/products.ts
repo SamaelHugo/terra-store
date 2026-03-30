@@ -10,6 +10,8 @@ export interface Product {
   inStock: boolean;
   featured: boolean;
   volume: string;
+  ingredients?: string;
+  usage?: string;
 }
 
 export interface Category {
@@ -35,7 +37,7 @@ export const products: Product[] = [
     price: 1890,
     category: categories[0],
     images: [
-      'https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: true,
@@ -50,7 +52,7 @@ export const products: Product[] = [
     price: 2490,
     category: categories[1],
     images: [
-      'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3850810/pexels-photo-3850810.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: false,
@@ -65,7 +67,7 @@ export const products: Product[] = [
     price: 1690,
     category: categories[0],
     images: [
-      'https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/13787566/pexels-photo-13787566.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: false,
@@ -81,7 +83,7 @@ export const products: Product[] = [
     oldPrice: 3990,
     category: categories[1],
     images: [
-      'https://images.pexels.com/photos/3683041/pexels-photo-3683041.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3652097/pexels-photo-3652097.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: true,
@@ -96,7 +98,7 @@ export const products: Product[] = [
     price: 2190,
     category: categories[2],
     images: [
-      'https://images.pexels.com/photos/3683108/pexels-photo-3683108.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3622479/pexels-photo-3622479.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: true,
@@ -111,7 +113,7 @@ export const products: Product[] = [
     price: 1990,
     category: categories[3],
     images: [
-      'https://images.pexels.com/photos/3683047/pexels-photo-3683047.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4047184/pexels-photo-4047184.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: false,
@@ -126,7 +128,7 @@ export const products: Product[] = [
     price: 2890,
     category: categories[0],
     images: [
-      'https://images.pexels.com/photos/3683051/pexels-photo-3683051.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: true,
@@ -141,7 +143,7 @@ export const products: Product[] = [
     price: 1490,
     category: categories[2],
     images: [
-      'https://images.pexels.com/photos/3683069/pexels-photo-3683069.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5945720/pexels-photo-5945720.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     inStock: true,
     featured: false,

@@ -3,7 +3,14 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(npx next:*)",
-      "Bash(curl -L -o E:/terra-store/frontend/public/hero-video.mp4 \"https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4\")"
+      "Bash(curl -L -o E:/terra-store/frontend/public/hero-video.mp4 \"https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4\")",
+      "Bash(curl -s http://localhost:1337/api/products?populate=*)",
+      "Bash(curl -s http://localhost:1337/api/categories?populate=*)",
+      "Bash(curl -s \"http://localhost:1337/api/products?populate=*&publicationState=preview\")",
+      "Bash(curl:*)",
+      "Bash(npm run:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); attrs=d.get\\(''''data'''',{}\\).get\\(''''schema'''',{}\\).get\\(''''attributes'''',{}\\); [print\\(f''''{k}: {v.get\\(type,?\\)}''''\\) for k,v in attrs.items\\(\\)]\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(json.dumps\\(p, ensure_ascii=False, indent=2\\)\\) for p in d[''''data''''][:2]]\")"
     ]
   }
 }
